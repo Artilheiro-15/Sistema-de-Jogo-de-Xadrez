@@ -6,6 +6,7 @@ import boardgame.Position;
 import boardgame.boardExcepition;
 import chess.pieces.King;
 import chess.pieces.Rook;
+import javax.xml.transform.Source;
 
 public class ChessMatch {
 
@@ -24,6 +25,12 @@ public class ChessMatch {
       }
     }
     return mat;
+  }
+
+  public boolean[][] possibleMoves(ChessPosition sourcePosition) {
+    Position position = sourcePosition.toPosition();
+    validateSoucePosition(position);
+    return board.piece(position).possibleMoves();
   }
 
   public ChessPiece performChessMove(
